@@ -20,9 +20,10 @@ pipeline {
 	  mvn clean package sonar:sonar
 	  
 	  '''
-        }
       }
+     }
     }
+   }
   }
     stage('Kaniko Build & Push Image') {
       steps {
