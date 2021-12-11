@@ -14,7 +14,7 @@ pipeline {
     stage('build && sonarqube analysis') {
       steps {
         container('java-build-tools') {
-	withSonarQubeEnv('sonarQube-scanner') {
+	withSonarQubeEnv('sonar') {
 	script {
 	  sh '''
 	  mvn clean package sonar:sonar
