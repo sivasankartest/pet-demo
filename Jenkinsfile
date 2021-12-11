@@ -11,12 +11,13 @@ pipeline {
   }
 
   stages {
-    stage('build code') {
+    stage('build && sonarqube analysis') {
       steps {
         container('java-build-tools') {
+	withSonarQubeEnv('sonarQube-scanner') {
 	script {
 	  sh '''
-	  mvn clean package
+	  mvn clean package sonar:sonar
 	  
 	  '''
         }
